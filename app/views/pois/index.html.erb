@@ -1,0 +1,7 @@
+<h1>Pois</h1>
+
+<%= content_tag "div", id: "pois", data: { url: Poi.limit(10).to_json } do %>
+    Loading pois...
+<% end %>
+<%= link_to "Click Here", "#", id: @button_id %>
+
