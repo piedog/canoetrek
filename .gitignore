@@ -20,3 +20,4 @@ doc/
 bundler_stubs/
 .rspec
 Gemfile.lock
+deleteme.*
