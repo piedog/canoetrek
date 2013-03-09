@@ -9,7 +9,7 @@
 #});`
 #
 #
-$ ->
-    clickable = new RGP.Clickable()
-    clickable.initialize gon.myobject
-   # alert $('#datadiv').data('msg')
+#$ ->
+#    clickable = new RGP.Clickable()
+#    clickable.initialize gon.myobject
+#   # alert $('#datadiv').data('msg')

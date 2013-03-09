@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require RGP
-//= require delay
-//= require test
+//  require RGP
+//  require delay
+//  require test
 //= require_tree .

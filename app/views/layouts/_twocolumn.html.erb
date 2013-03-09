@@ -1,0 +1,18 @@
+    <div id="wrapper">
+        <div id="content_wrapper">
+            <div id="content_inner_wrapper">
+                <%= render 'layouts/header' %>
+    <div id="right-column">
+    </div>
+                <%= yield %>
+            </div>
+        </div>
+    </div>
+    <div id="footer_wrapper">
+        <div id="footer_inner_wrapper">
+            <div id="my-footer-content">
+                <%= render 'layouts/footer' %>
+                <!-- <%= debug(params) if Rails.env.development? %> -->
+            </div>
+        </div>
+    </div>
