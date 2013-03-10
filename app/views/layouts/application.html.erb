@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>One Column Test</title>
+  <title>Map Layout Test</title>
   <%= include_gon %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="app">
-        <div id="header">header</div>
-        <div id="content"> Content
-            <div id="map-container">map</div>
+    <div id="header">header</div>
+    <div id="content">
+        <div id="middle-container">
+            <div id="right-column">Right Column</div>
+            <div id="map-container"><%= yield %></div>
         </div>
-        <div id="footer">footer</div>
+    </div>
+    <div id="footer">footer</div>
 </body>
 </html>

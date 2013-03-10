@@ -8,6 +8,7 @@ html,body {
     height: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 #header {
@@ -20,11 +21,25 @@ html,body {
 
 #map-container {
     height: 100%;
-    width: 100%;
     background-color: #040;
+    color: #aaa;
+    overflow: hidden;
 }
 #footer {
     background-color: #c3c;
     height: 50px;
     font-size:10px;
 }
+
+/** For two column  **/
+#middle-container {
+    width: 100%;
+}
+#right-column {
+    float: right;
+    width: 150px;
+    background-color: #0a0;
+    color: #ccc;
+    height: 100%;
+}
+

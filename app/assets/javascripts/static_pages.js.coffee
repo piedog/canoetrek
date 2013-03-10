@@ -4,6 +4,6 @@
 $ ->
     sizeContent = ->
         newHeight = $('html').height() - $('#header').height() - $('#footer').height() + 'px'
-        $('#content').css('height', newHeight)
+        $('#content').children().css('height', newHeight)
     $(document).ready(sizeContent);
     $(window).resize(sizeContent);
