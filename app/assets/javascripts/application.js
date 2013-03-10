@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= OpenLayers
+//= require_tree .
 //  require RGP
 //  require delay
 //  require test
-//= require_tree .
