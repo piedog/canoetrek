@@ -43,13 +43,6 @@ OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {
 
 });
 
-
-var OSMUrls = [
-    "http://a.tile.openstreetmap.org/${z}/${x}/${y}.png",
-    "http://b.tile.openstreetmap.org/${z}/${x}/${y}.png",
-    "http://c.tile.openstreetmap.org/${z}/${x}/${y}.png"
-];
-var wmsUSGSar = "http://mrdata.usgs.gov/services/ar?"        //version=1.1.1&amp;service=WMS
 var wmsServerUrl = "http://www1.4net2.net:8080/geoserver/wms";
 OpenLayers.ProxyHost = "/cgi-bin/proxy?url=";
 
@@ -77,10 +70,17 @@ var map = new OpenLayers.Map({
         this.getLayersByName("Selection")[0].destroyFeatures();
     },
     layers: [
-        new OpenLayers.Layer.XYZ("OSM (without buffer)", OSMUrls, {
-            transitionEffect: "resize", buffer: 0, sphericalMercator: true,
-            attribution: "Data CC-By-SA by <a href='http://openstreetmap.org/'>OpenStreetMap</a>"
-        }),
+        new OpenLayers.Layer.XYZ("OSM (without buffer)",
+            [
+                "http://a.tile.openstreetmap.org/${z}/${x}/${y}.png",
+                "http://b.tile.openstreetmap.org/${z}/${x}/${y}.png",
+                "http://c.tile.openstreetmap.org/${z}/${x}/${y}.png"
+            ],
+            {
+                transitionEffect: "resize", buffer: 0, sphericalMercator: true,
+                attribution: "Data CC-By-SA by <a href='http://openstreetmap.org/'>OpenStreetMap</a>"
+            }
+        ),
 
         new OpenLayers.Layer.WMS( "USGS", wmsServerUrl,
                 {layers: "DRGtopos"},
