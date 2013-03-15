@@ -5,5 +5,7 @@ $ ->
     sizeContent = ->
         newHeight = $('html').height() - $('#header').height() - $('#footer').height() + 'px'
         $('#content').children().css('height', newHeight)
-    $(document).ready(sizeContent);
-    $(window).resize(sizeContent);
+    $(document).ready(sizeContent)
+    $(window).resize(sizeContent)
+    gdd = new GdD.Test()
+    gdd.initialize()

@@ -21,3 +21,5 @@ bundler_stubs/
 .rspec
 Gemfile.lock
 deleteme.*
+vendor/assets/javascripts/OpenLayers-*
+vendor/assets/javascripts/proj4js

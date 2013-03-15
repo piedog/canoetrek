@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= OpenLayers
+//= require GdD
 //= require_tree .
-//  require RGP
-//  require delay
-//  require test
+
+
+//  require_directory ../../../../../vendor/assets/javascripts/OpenLayers-2.9.1/Openlayers
+//  require_directory ../../../../../vendor/assets/javascripts/proj4js/lib/proj4js-compressed
+//  ../../../vendor/
