@@ -1,1 +1,0 @@
-/var/www/localhost/htdocs/javascript/OpenLayers-2.9.1/OpenLayers.js
