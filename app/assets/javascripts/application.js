@@ -12,10 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_directory ../../../vendor/assets/javascripts/OpenLayers-2.9.1
+//= require_directory ../../../vendor/assets/javascripts/proj4js
+//= require ../../../vendor/assets/javascripts/proj4js/lib/proj4js.js
+//= require ../../../vendor/assets/javascripts/proj4js/lib/projCode/merc.js
 //= require GdD
 //= require_tree .
 
 
-//  require_directory ../../../../../vendor/assets/javascripts/OpenLayers-2.9.1/Openlayers
-//  require_directory ../../../../../vendor/assets/javascripts/proj4js/lib/proj4js-compressed
-//  ../../../vendor/
+//  require OpenLayers
+//  require proj4js
+//  require ../../../vendor/assets/javascripts/proj4js/lib/proj4js
+//  require ../../../vendor/assets/javascripts/OpenLayers-2.9.1/OpenLayers
+//  require_directory ../../../vendor/assets/javascripts/proj4js

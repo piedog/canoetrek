@@ -8,4 +8,4 @@ $ ->
     $(document).ready(sizeContent)
     $(window).resize(sizeContent)
     gdd = new GdD.Test()
-    gdd.initialize()
+    gdd.map.updateSize()
