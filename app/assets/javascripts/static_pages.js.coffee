@@ -7,5 +7,7 @@ $ ->
         $('#content').children().css('height', newHeight)
     $(document).ready(sizeContent)
     $(window).resize(sizeContent)
-    gdd = new GdD.Test()
-    gdd.map.updateSize()
+    setTimeout ->
+        mymap = new GdD.Map()
+        mymap.init(gon.mapoptions)
+    ,   1000
