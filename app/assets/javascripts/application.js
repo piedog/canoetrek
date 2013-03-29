@@ -27,3 +27,5 @@
 //  require ../../../vendor/assets/javascripts/proj4js/lib/proj4js
 //  require ../../../vendor/assets/javascripts/OpenLayers-2.9.1/OpenLayers
 //  require_directory ../../../vendor/assets/javascripts/proj4js
+//  require_directory ../../../vendor/assets/javascripts/OpenLayers-2.9.1
+//  require_directory ../../../vendor/assets/javascripts/OpenLayers-2.12

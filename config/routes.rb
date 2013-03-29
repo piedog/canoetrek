@@ -6,5 +6,7 @@ Olapp::Application.routes.draw do
 
     get "static_pages/home"
 
+    get "proxy" => "proxy#get", :as =>"proxy"
+
     root to: 'pois#index'
 end

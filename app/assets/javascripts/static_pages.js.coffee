@@ -11,3 +11,4 @@ $ ->
         mymap = new GdD.Map()
         mymap.init(gon.mapoptions)
     ,   1000
+#       alert mymap.map.getProjection() + ' '+mymap.map.layers[0].projection+' '+mymap.map.layers[1].projection
