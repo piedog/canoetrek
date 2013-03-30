@@ -8,13 +8,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="app">
-    <div id="header">header</div>
+    <div id="header"><%= render 'layouts/header' %></div>
     <div id="content">
         <div id="middle-container">
             <div id="right-column">Right Column</div>
             <%= yield %>
         </div>
     </div>
-    <div id="footer">footer</div>
+    <div id="footer"><%= render 'layouts/footer' %></div>
 </body>
 </html>
