@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_directory ../../../vendor/assets/javascripts/OpenLayers-2.9.1
+//= require_directory ../../../vendor/assets/javascripts/OpenLayers-2.12
 //= require_directory ../../../vendor/assets/javascripts/proj4js
 //= require ../../../vendor/assets/javascripts/proj4js/lib/proj4js.js
 //= require ../../../vendor/assets/javascripts/proj4js/lib/projCode/merc.js
