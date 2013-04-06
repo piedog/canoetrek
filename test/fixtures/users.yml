@@ -1,11 +1,10 @@
 # == Schema Information
 #
-# Table name: pois
+# Table name: users
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
-#  latitude   :float
-#  longitude  :float
+#  email      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -14,10 +13,8 @@
 
 one:
   name: MyString
-  latitude: 1.5
-  longitude: 1.5
+  email: MyString
 
 two:
   name: MyString
-  latitude: 1.5
-  longitude: 1.5
+  email: MyString
