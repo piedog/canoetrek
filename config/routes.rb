@@ -1,16 +1,27 @@
 Olapp::Application.routes.draw do
 
-  get "users/new"
+    get "users/new"
 
-    resources :pois
     resources :users
+  # resources :pois
+    resources :sessions, only: [:new, :create, :destroy]
+
+  # root to: 'pois#index'
+    root to: 'static_pages#home'
+  # root to: 'static_pages#map'
+
+    match '/signup',    to: 'users#new'
+    match '/signin',    to: 'sessions#new'
+    match '/signout',   to: 'sessions#destroy', via: :delete
+
 
     match '/map',       to: 'static_pages#map'
-    match '/signup',    to: 'users#new'
 
     get "static_pages/home"
 
     get "proxy" => "proxy#get", :as =>"proxy"
 
-    root to: 'pois#index'
+
+
+
 end
