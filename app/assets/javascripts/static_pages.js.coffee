@@ -7,7 +7,8 @@ $ ->
         $('#content').children().css('height', newHeight)
     $(document).ready(sizeContent)
     $(window).resize(sizeContent)
-    setTimeout ->
-        mymap = new GdD.Map()
-        mymap.init(gon.mapoptions)
-    ,   500
+    if typeof(gon) != 'undefined'
+        setTimeout ->
+            mymap = new GdD.Map()
+            mymap.init(gon.mapoptions)
+        ,   500
