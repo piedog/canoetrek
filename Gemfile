@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 
 # Bundle edge Rails instead:
@@ -45,6 +46,7 @@ gem 'gon'
 # Deploy with Capistrano
 group :test do
     gem 'capybara', '1.1.2'
+    gem 'factory_girl_rails', '4.1.0'
 end
 
 # To use debugger

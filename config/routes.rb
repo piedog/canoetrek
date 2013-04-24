@@ -1,6 +1,6 @@
 Olapp::Application.routes.draw do
 
-    get "users/new"
+  # get "users/new"
 
     resources :users
   # resources :pois
@@ -16,6 +16,8 @@ Olapp::Application.routes.draw do
 
 
     match '/map',       to: 'static_pages#map'
+
+    match '/help',      to: 'static_pages#help'
 
     get "static_pages/home"
 
