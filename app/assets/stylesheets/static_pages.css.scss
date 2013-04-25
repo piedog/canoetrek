@@ -1,43 +1,4 @@
 /***********************************************************************/
-/*
-@import "bootstrap";
-*/
-
-/* mixins, variables, etc. */
-/*
-$grayMediumLight: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box;
-}
-*/
-/* sidebar */
-/*
-aside {
-  section {
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-*/
 
 .gravatar {
   float: left;
@@ -107,7 +68,7 @@ html,body {
 }
 /** **********************************  **/
 /** Header changes for signin  **/
-/*
+
 .navbar .nav.pull-right { float: right; }
 .nav { list-style: none; }
 .navbar .nav > li { float: left; }
@@ -115,7 +76,7 @@ html,body {
     float: none;
     padding: 10px 15px 10px;
 }
-*/
+
 /** **********************************  **/
 /* forms */
 
