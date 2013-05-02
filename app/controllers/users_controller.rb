@@ -17,4 +17,9 @@ class UsersController < ApplicationController
             render 'new'
         end
     end
+
+    ## chapter 9
+    def edit
+        @user = User.find(params[:id])
+    end
 end

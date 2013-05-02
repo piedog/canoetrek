@@ -19,7 +19,7 @@ Olapp::Application.routes.draw do
 
     match '/help',      to: 'static_pages#help'
 
-    get "static_pages/home"
+  # get "static_pages/home"
 
     get "proxy" => "proxy#get", :as =>"proxy"
 
