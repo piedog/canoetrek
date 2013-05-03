@@ -1,6 +1,10 @@
 <% provide(:title, "Edit user") %> 
 <h1>Update your profile</h1>
-
+<div>
+    <% flash.each do |key, value| %>
+        <%=content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
+</div>
 <div class="row">
     <div class="span6 offset3">
         <%= form_for(@user) do |f| %>
