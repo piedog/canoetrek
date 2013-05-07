@@ -125,6 +125,16 @@ describe "AuthenticationPages" do
         end
 
 
+        describe "as admin user" do
+            let(:admin) { FactoryGirl.create(:admin) }
+            before { sign_in admin }
+
+            describe "should not delete self as admin by submitting DELETE request to Users#destroy" do
+                before {delete user_path(admin) }
+                specify { response.should redirect_to(users_path),
+                            flash[:error].should =~ /Cannot delete your own admin account/i }
+            end
+        end
 
     end
 end

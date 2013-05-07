@@ -37,13 +37,25 @@ class UsersController < ApplicationController
 
 
     def index
+      # @users = User.paginate(page: params[:page], per_page: 10)
         @users = User.paginate(page: params[:page])
     end
 
 
     def destroy
-        User.find(params[:id]).destroy
-        flash[:success] = "User destroyed."
+      # User.find(params[:id]).destroy
+      # flash[:success] = "User destroyed."
+      # redirect_to users_url
+
+
+
+        user = User.find(params[:id])
+        if (current_user == user) && (current_user.admin?)
+            flash[:error] = "Cannot delete your own admin account"
+        else
+            user.destroy
+            flash[:success] = "User destroyed"
+        end
         redirect_to users_url
     end
 
