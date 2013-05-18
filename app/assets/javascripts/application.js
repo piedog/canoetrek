@@ -16,6 +16,7 @@
 //= require_directory ../../../vendor/assets/javascripts/proj4js
 //= require ../../../vendor/assets/javascripts/proj4js/lib/proj4js.js
 //= require ../../../vendor/assets/javascripts/proj4js/lib/projCode/merc.js
+//= require bootstrap
 //= require_tree .
 //= require ../../../lib/assets/javascripts/GdD.js
 //= require ../../../lib/assets/javascripts/GdDmap.js

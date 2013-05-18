@@ -1,12 +1,25 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'bootstrap-sass', '2.1'
+gem 'bcrypt-ruby', '3.0.1'
+gem 'faker', '1.0.1'
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
 gem 'openlayers-rails'
+
+group :development do
+    gem 'annotate'
+end
+
+group :development, :test do
+    gem 'rspec-rails', '2.11.0'
+end
 
 
 # Gems used only for assets and not required
@@ -34,7 +47,10 @@ gem 'gon'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+group :test do
+    gem 'capybara', '1.1.2'
+    gem 'factory_girl_rails', '4.1.0'
+end
 
 # To use debugger
 # gem 'debugger'
