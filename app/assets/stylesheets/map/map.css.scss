@@ -1,0 +1,87 @@
+/***********************************************************************/
+body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+
+a {
+    color: #999;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+}
+
+/***********************************************************************/
+/**  Taken from:
+    https://code.google.com/p/cleanstickyfooter/
+    For keeping a header at the top
+ **/
+
+html,body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#header {
+    background-color: #bbb;
+/**
+    height: 100px;
+**/
+}
+div.navbar {
+    margin-bottom: 0;
+}
+
+ul.dropdown-menu {
+    z-index: 1500;
+}
+
+#content {
+}
+
+#map-container {
+    height: 100%;
+    color: #aaa;
+    overflow: hidden;
+}
+#map-container img { max-width: none; }
+#footer {
+    background-color: #c3c;
+    height: 50px;
+    font-size:10px;
+}
+#logo {
+    color: #fff;
+ /**
+    float:left;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+    line-height: 1;
+  **/
+}
+
+/** For two column  **/
+#middle-container {
+    width: 100%;
+}
+#right-column {
+    float: right;
+    width: 150px;
+    background-color: #0a0;
+    color: #ccc;
+    height: 100%;
+}
+/** **********************************  **/
+/** Header changes for signin  **/
+/**
+.navbar .nav.pull-right { float: right; }
+.nav { list-style: none; }
+.navbar .nav > li { float: left; }
+.navbar .nav > li > a {
+    float: none;
+    padding: 10px 15px 10px;
+}
+**/
+/** **********************************  **/

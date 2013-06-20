@@ -12,15 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//  require_directory ../../../vendor/assets/javascripts/OpenLayers-2.12
-//  require_directory ../../../vendor/assets/javascripts/proj4js
-//  require ../../../vendor/assets/javascripts/proj4js/lib/proj4js.js
-//  require ../../../vendor/assets/javascripts/proj4js/lib/projCode/merc.js
+//= require_directory ../../../vendor/assets/javascripts/OpenLayers-2.12
+//= require_directory ../../../vendor/assets/javascripts/proj4js
+//= require ../../../vendor/assets/javascripts/proj4js/lib/proj4js.js
+//= require ../../../vendor/assets/javascripts/proj4js/lib/projCode/merc.js
 //= require bootstrap
-//= require_directory ./app/
-//  require ../../../lib/assets/javascripts/GdD.js
-//  require ../../../lib/assets/javascripts/GdDmap.js
-
+//= require_tree ./map/
+//= require ../../../lib/assets/javascripts/GdD.js
+//= require ../../../lib/assets/javascripts/GdDmap.js
 
 
 //  require GdD
