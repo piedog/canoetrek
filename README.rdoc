@@ -12,11 +12,11 @@
 
 == Database Configuration Notes
 
-## First, create user georails. THen set the search _path so that users see the postgis schema:
+## First, create user olapp. THen set the search _path so that users see the postgis schema:
 ##       psql --dbname=template1 --username=postgres
-##           create role georails with password 'georails' login;
+##           create role olapp with password 'olapp' login;
 ##
-##       psql --dbname=geo_rails_test_development --username=georails
-##           alter database geo_rails_test_development set search_path='$user','public','postgis';
+##       psql --dbname=oltst_development --username=olapp --command=
+##           alter database oltst_development set search_path='$user','public','postgis';
 ##           Note, need to exit psql, then re-enter psql to see change.
 

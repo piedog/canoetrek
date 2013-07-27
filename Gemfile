@@ -12,6 +12,8 @@ gem 'bootstrap-will_paginate', '0.0.6'
 
 gem 'pg'
 gem 'openlayers-rails'
+gem 'rake','10.0.4'
+gem 'activerecord-postgis-adapter'
 
 group :development do
     gem 'annotate'
