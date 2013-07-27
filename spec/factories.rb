@@ -21,4 +21,13 @@ FactoryGirl.define do
         content "Lorem ipsum"
         user
     end
+
+    factory :trip_area do
+        name           "Nowhere"
+        description    "A trip to Now Where. You must go there."
+        center_point   "POINT(-96.0 35.0)"
+        zoom_level     12
+        user
+    end
+
 end
