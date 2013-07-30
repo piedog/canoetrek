@@ -25,4 +25,15 @@ describe TripArea do
         before { @trip_area.user_id = nil }
         it { should_not be_valid }
     end
+
+
+    describe "with blank name" do
+        before { @trip_area.name = " " }
+        it { should_not be_valid }
+    end
+
+    describe "with name that is too long" do
+        before { @trip_area.name = "a" * 17 }
+        it { should_not be_valid }
+    end
 end
