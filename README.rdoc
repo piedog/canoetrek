@@ -20,3 +20,26 @@
 ##           alter database oltst_development set search_path='$user','public','postgis';
 ##           Note, need to exit psql, then re-enter psql to see change.
 
+
+== Data Model
+
+
+== Routes
+
+    map.resources :users do |user|
+        users.resources :trips
+    end
+
+
+    users_url                   /users
+    user_url(1)                 /users/1
+    user_trip_url(1)            /users/1/trips
+
+    trip_url(2)                 /trips/2
+    trip_photos_url(2)          /trips/2/photos
+
+    photo_url(3)                /photos/3
+    photo_comments_url          /photos/3/comments
+
+    comment_url(4)              /comments/4
+
