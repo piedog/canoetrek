@@ -6,6 +6,7 @@ Olapp::Application.routes.draw do
         member do
             get :following, :followers
         end
+        resources :trips
     end
   # resources :pois
     resources :sessions,   only: [:new, :create, :destroy]

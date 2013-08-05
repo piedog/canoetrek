@@ -43,3 +43,10 @@
 
     comment_url(4)              /comments/4
 
+
+== Trip Model
+
+rails generate model Trip name:string description:string center:point zoom:integer
+
+
+

@@ -1,0 +1,9 @@
+<% provide(:title, 'trips for user') %>
+<h1 class="page-heading">Trips for user</h1>
+
+<% if @trip_items.any? %>
+    <ol class="trips">
+        <%= render partial: 'shared/trip_item', collection: @trip_items %>
+    </ol>
+<% end %>
+
