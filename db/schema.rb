@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130727011513) do
+ActiveRecord::Schema.define(:version => 20130805023841) do
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -52,6 +52,18 @@ ActiveRecord::Schema.define(:version => 20130727011513) do
   end
 
   add_index "trip_areas", ["user_id", "created_at"], :name => "index_trip_areas_on_user_id_and_created_at"
+
+  create_table "trips", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.spatial  "center",      :limit => {:srid=>4326, :type=>"point", :geographic=>true}
+    t.integer  "zoom"
+    t.integer  "user_id"
+    t.datetime "created_at",                                                              :null => false
+    t.datetime "updated_at",                                                              :null => false
+  end
+
+  add_index "trips", ["user_id"], :name => "index_trips_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
