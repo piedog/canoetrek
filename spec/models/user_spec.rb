@@ -43,7 +43,7 @@ describe User do
     it { should respond_to(:follow!) }
     it { should respond_to(:reverse_relationships) }
     it { should respond_to(:followers) }
-    it { should respond_to(:trip_areas) }
+    it { should respond_to(:trips) }
 
     it { should be_valid }
     it { should_not be_admin }
@@ -223,27 +223,27 @@ describe User do
 
     end
 
-    describe "trip area associations" do
+    describe "trip associations" do
 
         before { @user.save }
         let!(:older_trip) do
-            FactoryGirl.create(:trip_area, user: @user, created_at: 1.day.ago)
+            FactoryGirl.create(:trip, user: @user, created_at: 1.day.ago)
         end
         let!(:newer_trip) do
-            FactoryGirl.create(:trip_area, user: @user, created_at: 1.hour.ago)
+            FactoryGirl.create(:trip, user: @user, created_at: 1.hour.ago)
         end
 
         it "should have the right trip in the right order" do
-            expect(@user.trip_areas.to_a).to eq [newer_trip, older_trip]
+            expect(@user.trips.to_a).to eq [newer_trip, older_trip]
         end
 
 
         it "should destroy associated trips" do
-            trip_areas = @user.trip_areas.to_a
+            trips= @user.trips.to_a
             @user.destroy
-            expect(trip_areas).not_to be_empty
-            trip_areas.each do |trip_area|
-                expect(TripArea.where(id: trip_area.id)).to be_empty
+            expect(trips).not_to be_empty
+            trips.each do |trip|
+                expect(Trip.where(id: trip.id)).to be_empty
             end
         end
     end 

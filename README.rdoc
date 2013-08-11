@@ -48,5 +48,9 @@
 
 rails generate model Trip name:string description:string center:point zoom:integer
 
+Generate trip object in rails console:
+    t4 = Trip.create(:name => 't4',:description=>'Test trip four',:center=>"POINT(-95.06 39)",:zoom=>5)
+    t4 = Trip.create(name: 't4',description: 'Test trip four',center: "POINT(-95.06 39)",zoom: 5)
+
 
 
