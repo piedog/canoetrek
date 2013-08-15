@@ -10,8 +10,8 @@ class TripsController < ApplicationController
     end
 
     def create
-        gfactory = RGeo::Geographic.spherical_factory
-        loc = gfactory.point(long,lat)
+     #  gfactory = RGeo::Geographic.spherical_factory
+     #  loc = gfactory.point(long,lat)
         @trip = current_user.trips.build(params[:trip])
         if @trip.save
             flash[:success] = "Trip created!"

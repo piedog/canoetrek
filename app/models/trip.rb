@@ -1,21 +1,26 @@
 class Trip < ActiveRecord::Base
-    attr_accessible :center, :description, :name, :zoom, :user_id
-    set_rgeo_factory_for_column(:center, RGeo::Geographic.spherical_factory(srid: 4326))
+    attr_accessor :longitude, :latitude
+    attr_accessible :longitude, :latitude, :description, :name, :zoom, :user_id
 
     belongs_to :user
-    default_scope -> { order('created_at DESC') }
 
+    validates :longitude,presence: true, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
+    validates :latitude, presence: true, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
     validates :user_id, presence: true
     validates :name, presence: true, length: { maximum: 32 }
+    validates :zoom, allow_nil: false, numericality: { in: 1..12 }
 
-    validates_numericality_of :zoom, allow_nil: false, in: 1..12, message: "a zoom level must be provided between 1 and 12"
+    before_save :update_center
+
+   #default_scope -> { order('created_at DESC') }
 
 
+    def update_center
+        if longitude.present? || latitude.present?
+            long = longitude || self.center.longitude
+            lat = latitude || self.center.latitude
+            self.center = RGeo::Geographic.spherical_factory(srid: 4326).point(long,lat)
+        end
+    end
 
-
-
-    delegate :latitude, to: :center, allow_nil: true
-    delegate :longitude, to: :center, allow_nil: true
-    validates :latitude, presence: true, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
-    validates :longitude,presence: true, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
 end
