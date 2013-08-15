@@ -1,0 +1,34 @@
+<% provide(:title, @user.name) %>
+<div>
+    <% flash.each do |key, value| %>
+        <%=content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
+</div>
+<div class="row">
+    <aside class="span4">
+        <section>
+            <h1>
+                <%= gravatar_for @user %>
+                <%= @user.name %>
+            </h1>
+        </section>
+        <section>
+            <%= render 'shared/stats' %>
+        </section>
+    </aside>
+
+    <div class="span8">
+
+        <%= render 'follow_form' if signed_in? %>
+        <% if @user.trips.any? %>
+            <h3>Trips (<%= @user.trips.count %>)</h3>
+            <ol class="microposts">
+                <%= render @trips %>
+            </ol>
+            <%= will_paginate @trips %>
+        <% end %>
+
+    </div>
+
+
+</div>

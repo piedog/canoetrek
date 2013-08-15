@@ -1,0 +1,32 @@
+<% provide(:title, 'New Trip') %>
+<h1>Sign up</h1>
+<div>
+    <% flash.each do |key, value| %>
+        <%=content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
+</div>
+<div class="row">
+    <div class="span6 offset3">
+        <%= form_for([@user, @trip]) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+
+            <%= f.label :latitude %>
+            <%= f.text_field :latitude %>
+
+            <%= f.label :longitude %>
+            <%= f.text_field :longitude %>
+
+            <%= f.label :zoom %>
+            <%= f.text_field :zoom %>
+
+
+            <%= f.submit "Create a trip", class: "btn btn-large btn-primary" %>
+        <% end %>
+    </div>
+</div>
+
