@@ -17,18 +17,17 @@
         </section>
     </aside>
 
-    <div class="span8">
-
-        <%= render 'follow_form' if signed_in? %>
-        <% if @user.trips.any? %>
-            <h3>Trips (<%= @user.trips.count %>)</h3>
-            <ol class="microposts">
-                <%= render @trips %>
-            </ol>
-            <%= will_paginate @trips %>
-        <% end %>
-
-    </div>
+    <aside>
+    <section>
+    <dl>
+        <dt>Name:</dt>        <dd><%= @trip.name %></dd>
+        <dt>Description:</dt> <dd><%= @trip.description %></dd>
+        <dt>Longitude:</dt>   <dd><%= "%.6f" % @trip.center.x %></dd>
+        <dt>Latitude:</dt>    <dd><%= "%.6f" % @trip.center.y %></dd>
+        <dt>Zoom level:</dt>  <dd><%= @trip.zoom %></dd>
+    </dl>
+    </section>
+    </aside>
 
 
 </div>

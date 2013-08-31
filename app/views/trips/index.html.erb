@@ -1,9 +1,11 @@
 <% provide(:title, 'trips for user') %>
-<h1 class="page-heading">Trips for user</h1>
+<h1 class="page-heading">Trips for <%= @user.name %></h1>
 
-<% if @trip_items.any? %>
+<% if @trips.any? %>
     <ol class="trips">
-        <%= render partial: 'shared/trip_item', collection: @trip_items %>
+        <!--  % @trips.each do |trip| % -->
+        <!--  % end % -->
+        <%= render partial: 'shared/trip', collection: @trips %>
     </ol>
 <% end %>
 

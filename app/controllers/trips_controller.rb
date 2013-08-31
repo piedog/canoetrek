@@ -17,8 +17,8 @@ class TripsController < ApplicationController
             flash[:success] = "Trip created!"
             redirect_to root_url
         else
-            @trip_items = []
-            render 'static_pages/home'
+            @trips = []
+            render 'static_pages/hometrips'
         end
     end
 
@@ -29,14 +29,15 @@ class TripsController < ApplicationController
 
     def index
         @user = User.find(params[:user_id])
-        @trip_items = @user.trips
+        @trips = @user.trips
+        ## @trips = @user.trips.paginate(page: params[:page])
     end
 
 
 
     def show
-        @user = User.find(params[:id])
-        @trips = @user.trips.paginate(page: params[:page])
+        @user = User.find(params[:user_id])
+        @trip = Trip.find(params[:id])
     end
 
 end

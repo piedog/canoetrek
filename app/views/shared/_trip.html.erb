@@ -1,0 +1,8 @@
+<li id="<%= trip.id %>">
+    <div style="float:left;width:8%;";><%= link_to trip.name, user_trip_path(@user.id, trip.id) %></div>
+    <div style="float:left;width:20%;";><%= trip.description %></div>
+    <div style="float:left;width:10%;";><%= "%.6f" % trip.center.x %></div>
+    <div style="float:left;width:10%;";><%= "%.6f" % trip.center.y %></div>
+    <div style="float:left;width:8%;";><%= trip.zoom %></div>
+    <div style="clear:both"></div>
+</li>
