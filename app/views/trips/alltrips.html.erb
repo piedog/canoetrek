@@ -1,0 +1,25 @@
+<% provide(:title, 'All trips') %>
+<h1 class="page-heading">All Trips</h1>
+
+<%= will_paginate %>
+<% if @trips.any? %>
+    <ol class="trips">
+        <!-- %= render partial: 'shared/trip', collection: @trips % -->
+
+        <% @trips.each do |trip| %>
+<li id="<%= trip.id %>">
+    <div style="float:left;width:8%;";><%= link_to trip.name, user_trip_path(trip.user_id, trip.id) %></div>
+    <div style="float:left;width:20%;";><%= trip.description %></div>
+    <div style="float:left;width:10%;";><%= "%.6f" % trip.center.x %></div>
+    <div style="float:left;width:10%;";><%= "%.6f" % trip.center.y %></div>
+    <div style="float:left;width:8%;";><%= trip.zoom %></div>
+    <div style="float:left;width:15%;";><%= link_to trip.user.name, user_path(trip.user_id) %></div>
+    <div style="clear:both"></div>
+</li>
+
+        <% end %>
+
+
+    </ol>
+<% end %>
+<%= will_paginate %>

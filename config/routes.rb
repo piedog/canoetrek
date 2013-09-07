@@ -8,7 +8,7 @@ Olapp::Application.routes.draw do
         end
         resources :trips    ##, only: [:index, :new, :create]
     end
-  # resources :pois
+
     resources :sessions,   only: [:new, :create, :destroy]
     resources :microposts, only: [:create, :destroy]
     resources :relationships, only: [:create, :destroy]
@@ -26,6 +26,7 @@ Olapp::Application.routes.draw do
     match '/about',     to: 'static_pages#about'
     match '/contact',   to: 'static_pages#contact'
 
+    match '/trips',      to: 'trips#alltrips'
 
 
 

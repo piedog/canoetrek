@@ -33,6 +33,10 @@ class TripsController < ApplicationController
         ## @trips = @user.trips.paginate(page: params[:page])
     end
 
+    def alltrips
+      # @trips = Trip.find(:all, joins: :user)
+        @trips = Trip.paginate( joins: :user, page: params[:page], per_page: 5)
+    end
 
 
     def show
