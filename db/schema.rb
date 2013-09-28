@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805023841) do
+ActiveRecord::Schema.define(:version => 20130913004605) do
+
+  create_table "enrollments", :force => true do |t|
+    t.integer  "opentrip_id"
+    t.integer  "participant_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "enrollments", ["opentrip_id", "participant_id"], :name => "index_enrollments_on_opentrip_id_and_participant_id", :unique => true
+  add_index "enrollments", ["opentrip_id"], :name => "index_enrollments_on_opentrip_id"
+  add_index "enrollments", ["participant_id"], :name => "index_enrollments_on_participant_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"

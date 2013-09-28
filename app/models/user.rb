@@ -17,7 +17,12 @@ class User < ActiveRecord::Base
     has_many :followed_users, through: :relationships, source: :followed
     has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
     has_many :followers, through: :reverse_relationships, source: :follower
+
     has_many :trips, dependent: :destroy
+
+    has_many :enrollments, foreign_key: "participant_id", dependent: :destroy
+    has_many :reverse_enrollments, foreign_key: "opentrip_id", class_name: "Enrollment", dependent: :destroy
+    has_many :participants, through: :reverse_enrollments, source: :participant
 
     before_save { |user| user.email = email.downcase }
     before_save :create_remember_token
@@ -46,6 +51,17 @@ class User < ActiveRecord::Base
         relationships.find_by_followed_id(other_user.id).destroy
     end
 
+    def enroll!(trip)
+        enrollments.create!(opentrip_id: trip.id)
+    end
+
+    def unenroll!(trip)
+        enrollments.find_by_opentrip_id(trip.id).destroy
+    end
+
+    def enrolled?(trip)
+        enrollments.find_by_opentrip_id(trip.id)
+    end
 
     private
 

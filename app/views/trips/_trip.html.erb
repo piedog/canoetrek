@@ -1,0 +1,11 @@
+<li>
+    <span class="content"><%= trip.name%></span>
+    <span class="timstamp">
+        Posted <%= time_ago_in_words(trip.created_at) %> ago.
+    </span>
+    <% if current_user?(trip.user) %>
+        <%= link_to "delete", user_trip_path(trip.user_id, trip.id), method: :delete, data: {confirm: "You sure?" }, title: trip.name %>
+    <% else %>
+        <%= submit_tag "Join", type: "button", class: "btn btn-large" %>
+    <% end %>
+</li>

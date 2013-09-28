@@ -13,7 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-doc/
+
 *.swp
 *~
 .project
@@ -23,3 +23,4 @@ Gemfile.lock
 deleteme.*
 vendor/assets/javascripts/OpenLayers-*
 vendor/assets/javascripts/proj4js
+*.dia.autosave
