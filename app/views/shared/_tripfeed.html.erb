@@ -1,0 +1,6 @@
+<% if @tripfeed_items.any? %>
+    <ol class="microposts">
+        <%= render partial: 'shared/tripfeed_item', collection: @tripfeed_items %>
+    </ol>
+    <%= will_paginate @tripfeed_items %>
+<% end %>

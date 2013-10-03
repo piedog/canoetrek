@@ -1,15 +1,19 @@
 <% @user ||= current_user %>
 <div class="stats">
-    <a href="<%= following_user_path(@user) %>">
+    <% ## These are trips that I have joined and trips that I have created %>
+
+
+    <% ## Note, the following path is incorrect.  I think I need an ernollments route %>
+    <a href="<%= enrollments_user_path(@user) %>">
         <strong id="following" class="stat">
-            <%= @user.followed_users.count %>
+            <%= @user.enrollments.count %>
         </strong>
-        following
+        trips I have joined
     </a>
-    <a href="<%= followers_user_path(@user) %>">
+    <a href="<%= user_trips_path(@user) %>">
         <strong id="followers" class="stat">
-            <%= @user.followers.count %>
+            <%= @user.trips.count %>
         </strong>
-        followers
+        My trips
     </a>
 </div>

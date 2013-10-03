@@ -77,6 +77,12 @@ class UsersController < ApplicationController
     end
     
 
+    def enrollments
+        @title = "Trips I am enrolled in"
+        @user = User.find(params[:id])
+        
+    end
+
 
 
     private

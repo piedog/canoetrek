@@ -12,9 +12,19 @@ class Trip < ActiveRecord::Base
 
     before_save :update_center
 
-   #default_scope -> { order('created_at DESC') }
+    default_scope -> { order('created_at DESC') }
 
 
+    def self.from_trips_enrolled_by(user)
+        opentrip_ids = "SELECT opentrip_id from enrollments where participant_id = :user_id"
+        where("id IN (#{opentrip_ids})", user_id: user.id)
+    end
+
+
+
+
+
+#   private
     def update_center
         if longitude.present? || latitude.present?
             long = longitude || self.center.longitude

@@ -39,6 +39,11 @@ class User < ActiveRecord::Base
         Micropost.from_users_followed_by(self)
     end
 
+    ##  all trips that user is participating in (all trips that this user is enrolled in)
+    def tripfeed
+        Trip.from_trips_enrolled_by(self)
+    end
+
     def following?(other_user)
         relationships.find_by_followed_id(other_user.id)
     end
@@ -62,6 +67,7 @@ class User < ActiveRecord::Base
     def enrolled?(trip)
         enrollments.find_by_opentrip_id(trip.id)
     end
+
 
     private
 

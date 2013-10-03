@@ -17,8 +17,8 @@ class TripsController < ApplicationController
             flash[:success] = "Trip created!"
             redirect_to root_url
         else
-            @trips = []
-            render 'static_pages/hometrips'
+            @tripfeed_items = []
+            render 'static_pages/home'
         end
     end
 

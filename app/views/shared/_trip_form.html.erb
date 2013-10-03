@@ -1,0 +1,11 @@
+<%= form_for(@trip) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+        <%= f.text_field :name, placeholder: "Name your trip..." %>
+        <%= f.text_area :description, placeholder: "Compose a trip description..." %>
+        <%= f.text_field :latitude, placeholder: "Latitude location of center..." %>
+        <%= f.text_field :longitude,placeholder: "Longitude location of center..." %>
+        <%= f.text_field :zoom, placeholder: "Zoom level..." %>
+    </div>
+    <%= f.submit "Create trip", class: "btn btn-large btn-primary" %>
+<% end %>
