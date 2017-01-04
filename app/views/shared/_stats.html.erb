@@ -4,7 +4,7 @@
 
 
     <% ## Note, the following path is incorrect.  I think I need an ernollments route %>
-    <a href="<%= enrollments_user_path(@user) %>">
+    <a href="<%= user_enrollments_path(@user) %>">
         <strong id="following" class="stat">
             <%= @user.enrollments.count %>
         </strong>

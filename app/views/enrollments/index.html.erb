@@ -1,0 +1,11 @@
+<% provide(:title, 'Trips that I have joined') %>
+<h1 class="page-heading">Trips that I have joined</h1>
+
+<% if @trips.any? %>
+    <ol class="trips">
+        <!--  % @trips.each do |trip| % -->
+        <!--  % end % -->
+        <%= render partial: 'shared/trip', collection: @trips %>
+    </ol>
+<% end %>
+

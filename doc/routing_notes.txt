@@ -32,9 +32,6 @@ Trip I have joined    /users/x/enrollments
     More trips I have joined... /users/x/enrollments
     
 =============================================
-
-
-
  enrollments_user GET    /users/:id/enrollments(.:format)    users#enrollments
       enrollments POST   /enrollments(.:format)              enrollments#create
        enrollment DELETE /enrollments/:id(.:format)          enrollments#destroy

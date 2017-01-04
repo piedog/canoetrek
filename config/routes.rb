@@ -4,15 +4,21 @@ Olapp::Application.routes.draw do
 
     resources :users do
         member do
-            get :following, :followers, :enrollments
+            get :following, :followers
         end
         resources :trips, only: [:index, :create, :destroy]  ## if we remove this, the home page does not work
+        resources :enrollments, only: [:index, :create, :destroy]
     end
+
+    resources :trips do
+        resources :participants, only: [:index, :create, :destroy]
+    end
+
+    resources :trips, only: [:create, :destroy]    ## if i remove this, the create trip does not work
 
     resources :sessions,   only: [:new, :create, :destroy]
     resources :microposts, only: [:create, :destroy]
     resources :relationships, only: [:create, :destroy]
-    resources :trips, only: [:create, :destroy]    ## if i remove this, the create trip does not work
 
     root to: 'static_pages#home'
 
