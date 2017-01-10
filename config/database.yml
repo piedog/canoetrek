@@ -6,14 +6,14 @@
 development:
   adapter: postgis
   encoding: unicode
-  username: olapp
-  database: oltst_development
+  username: olapp_test
+  database: ol_development
   pool: 5
   timeout: 5000
 
   schema_search_path: 'public, postgis'
   su_username: postgres
-  script_dir: /usr/share/postgresql/9.1/contrib/postgis-1.5
+  script_dir: /usr/share/postgresql/9.5/contrib/postgis-2.2
   extension: postgis
 
 
@@ -23,25 +23,25 @@ development:
 test:
   adapter: postgis
   encoding: unicode
-  username: olapp
-  database: oltst_test
+  username: olapp_test
+  database: ol_test
   pool: 5
   timeout: 5000
 
   schema_search_path: 'public, postgis'
   su_username: postgres
-  script_dir: /usr/share/postgresql/9.1/contrib/postgis-1.5
+  script_dir: /usr/share/postgresql/9.5/contrib/postgis-2.2
   extension: postgis
 
 
 production:
   adapter: postgis
   encoding: unicode
-  database: oltst_production
+  database: ol_production
   pool: 5
   timeout: 5000
 
   schema_search_path: 'public, postgis'
   su_username: postgres
-  ##script_dir: /usr/share/postgresql/9.1/contrib/postgis-1.5
+  ##script_dir: /usr/share/postgresql/9.5/contrib/postgis-2.2
   ##extension: postgis
