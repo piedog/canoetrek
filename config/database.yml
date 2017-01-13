@@ -8,6 +8,8 @@ development:
   encoding: unicode
   username: olapp_test
   database: ol_development
+  password: olapp_test
+  host: lila
   pool: 5
   timeout: 5000
 
@@ -15,6 +17,7 @@ development:
   su_username: postgres
   script_dir: /usr/share/postgresql/9.5/contrib/postgis-2.2
   extension: postgis
+### connection: psql --host=lila --username=olapp_test --password --dbname=ol_development
 
 
 # Warning: The database defined as "test" will be erased and
@@ -25,6 +28,8 @@ test:
   encoding: unicode
   username: olapp_test
   database: ol_test
+  password: olapp_test
+  host: lila
   pool: 5
   timeout: 5000
 
