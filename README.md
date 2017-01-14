@@ -5,7 +5,7 @@
 This is based on mhartl's tutorial. I originally did this as a learning excercise for ROR sometime in 2013. Then I modifed the data model and code to conform to my application premise.
 
 
-== Credits
+# Credits
 The tutorial that I followed is:
   http://ruby.railstutorial.org.
   https://github.com/railstutorial/sample_app_2nd_ed
@@ -18,21 +18,21 @@ I also relied upon Daniel Azuma's blog on developing geospatial applications wit
   http://daniel-azuma.com/articles/georails/
 
 
-== Database Configuration Notes
+# Database Configuration Notes
 
-## First, create user olapp. THen set the search _path so that users see the postgis schema:
-##       psql --dbname=template1 --username=postgres
-##           create role olapp with password 'olapp' login;
-##
-##       psql --dbname=oltst_development --username=olapp --command=
-##           alter database oltst_development set search_path='$user','public','postgis';
-##           Note, need to exit psql, then re-enter psql to see change.
+ First, create user olapp. THen set the search _path so that users see the postgis schema:
+       psql --dbname=template1 --username=postgres
+           create role olapp with password 'olapp' login;
 
-
-== Data Model
+       psql --dbname=oltst_development --username=olapp --command=
+           alter database oltst_development set search_path='$user','public','postgis';
+           Note, need to exit psql, then re-enter psql to see change.
 
 
-== Routes
+# Data Model
+
+
+# Routes
 
     map.resources :users do |user|
         users.resources :trips
@@ -51,7 +51,7 @@ I also relied upon Daniel Azuma's blog on developing geospatial applications wit
 
     comment_url(4)              /comments/4
 
-== More Routing Notes
+# More Routing Notes
 =============================================
 Home Page of Signed-In User
 
@@ -106,7 +106,7 @@ participants_trip GET    /trips/:id/participants(.:format)   trips#participants
              trip DELETE /trips/:id(.:format)                trips#destroy
 
 
-== Trip Model
+# Trip Model
 
 rails generate model Trip name:string description:string center:point zoom:integer
 
@@ -115,7 +115,7 @@ Generate trip object in rails console:
     t4 = Trip.create(name: 't4',description: 'Test trip four',center: "POINT(-95.06 39)",zoom: 5)
 
 
-== Notes by Others:
+# Notes by Others:
 
 Routes Explained from: http://stackoverflow.com/questions/7053754/ruby-on-rails-routes
 
@@ -143,10 +143,4 @@ So if "localhost:3000/magazines" is the page you want, you should check the rout
 (This might be just an overkill to write all this here, but I faced many problems due to this info not being available in a consolidated manner. Always wanted to write it out and finally did. I wish it was available on http://edgeguides.rubyonrails.org/routing.html in a separate section.)
 share|improve this answer
 
-edited May 8 at 3:51
-Jon
-375
-
 answered Aug 13 '11 at 23:46
-rubish
-5,94011331
