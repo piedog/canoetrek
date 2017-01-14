@@ -31,6 +31,13 @@ I also relied upon Daniel Azuma's blog on developing geospatial applications wit
 
 # Data Model
 
+## Trip Model
+
+rails generate model Trip name:string description:string center:point zoom:integer
+
+Generate trip object in rails console:
+    t4 = Trip.create(:name => 't4',:description=>'Test trip four',:center=>"POINT(-95.06 39)",:zoom=>5)
+    t4 = Trip.create(name: 't4',description: 'Test trip four',center: "POINT(-95.06 39)",zoom: 5)
 
 # Routes
 
@@ -105,42 +112,3 @@ participants_trip GET    /trips/:id/participants(.:format)   trips#participants
             trips POST   /trips(.:format)                    trips#create
              trip DELETE /trips/:id(.:format)                trips#destroy
 
-
-# Trip Model
-
-rails generate model Trip name:string description:string center:point zoom:integer
-
-Generate trip object in rails console:
-    t4 = Trip.create(:name => 't4',:description=>'Test trip four',:center=>"POINT(-95.06 39)",:zoom=>5)
-    t4 = Trip.create(name: 't4',description: 'Test trip four',center: "POINT(-95.06 39)",zoom: 5)
-
-
-# Notes by Others:
-
-Routes Explained from: http://stackoverflow.com/questions/7053754/ruby-on-rails-routes
-
-Resource pointed out in previous answers is awesome and that is where I got started. I still refer that in case I am stuck somewhere. One thing I find missing in the recourse is that it doesn't include the explanation of reading the routes table i.e. output of command rake routes and it takes time to fit the pieces together. Although if you read through the whole guide patiently, you can fit the pieces together.
-
-On my system 'rake routes' gives the following output (excerpt relevant to resources :messages)
-
-    messages GET    /messages(.:format)            {:action=>"index", :controller=>"messages"}
-             POST   /messages(.:format)            {:action=>"create", :controller=>"messages"}
- new_message GET    /messages/new(.:format)        {:action=>"new", :controller=>"messages"}
-edit_message GET    /messages/:id/edit(.:format)   {:action=>"edit", :controller=>"messages"}
-     message GET    /messages/:id(.:format)        {:action=>"show", :controller=>"messages"}
-             PUT    /messages/:id(.:format)        {:action=>"update", :controller=>"messages"}
-             DELETE /messages/:id(.:format)        {:action=>"destroy", :controller=>"messages"}
-
-All the columns in this table give very important information:
-
-    Route Name(1st Column): This gives the name of the route, to which you can append "_url" or "_path" to derive the helper name for the route. For example, first one is the "messages", so you can use messages_path and messages_url in your views and controllers as a helper method. Looking at the table you can tell messages_path will generate a path of form "/messages(.:format)". Similarly, other route names generated are "new_message", "edit_message" and "message". You can also control the naming of routes.
-    HTTP Verb(2nd Column): This gives the information about the http verb which this route will respond to. If it is not present, then it means this route will respond to all http verbs. Generally browsers only support, "GET" and "POST" verbs. Rails simulate "PUT" and "DELETE" by passing a parameter "_method" with verb name as value to simulate "PUT" and "DELETE". Links by default result in a "GET" verb and form submissions in "POST". In conjunction with the first column, if you use messages_path with http "GET" it would match first route and if you use it with "POST" it will match second route. This is very important to note, same url with different http verbs can map to different routes.
-    URL Pattern(3rd Column): Its like a limited featured regular expression with syntax of its own. ":id" behaves like (.+) and captures the match in parameter "id", so that you can do something like params[:id] and get the captured string. Braces () represent that this parameter is optional. You can also pass these parameters in helpers to generate the corresponding route. For example if you used message_path(:id => 123) is will generate the output "/messages/123".
-    Where this routes(4th Column): This column generally tells the controller and the corresponding action which will handle requests matching this route. There can be additional information here like constraints if you defined any.
-
-So if "localhost:3000/magazines" is the page you want, you should check the routes table with url pattern as "/magazines(.:format)" and disect it yourself to find out what you need. I would recommend you read the whole guide from top to bottom if you are just starting rails.
-
-(This might be just an overkill to write all this here, but I faced many problems due to this info not being available in a consolidated manner. Always wanted to write it out and finally did. I wish it was available on http://edgeguides.rubyonrails.org/routing.html in a separate section.)
-share|improve this answer
-
-answered Aug 13 '11 at 23:46
