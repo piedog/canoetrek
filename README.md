@@ -1,13 +1,21 @@
-== CanoeTrek
+# canoetrek
 
-  Based on mhartl's tutorial
-  http://ruby.railstutorial.org
+  This app is meant to be used as an organizational tool for outdoor trips such as canoeing, backpacking, etc. The premise is similar to Twitter in that a trip organizer defines the route of a canoe trip, hiking trip, etc by interacting with the online map and text interface. These trip details are posted and read by followers of this leader. Followers can choose to participate in the trip and then become participants. Followers have accesss to most details of the trip that includes trip reports, photos, and map locations of camping sites and travel routes. Trip participants are allowed to post details like comments and photos. The trip leader can post almost anything, including the trip report.
+
+This is based on mhartl's tutorial. I originally did this as a learning excercise for ROR sometime in 2013. Then I modifed the data model and code to conform to my application premise.
+
+
+== Credits
+The tutorial that I followed is:
+  http://ruby.railstutorial.org.
   https://github.com/railstutorial/sample_app_2nd_ed
 
+This appears to have been updated and is now found at:
+  https://www.railstutorial.org/book)
 
-  Geospatial from:
-  https://github.com/dazuma/rgeo
-  http://blog.daniel-azuma.com/archives/69
+
+I also relied upon Daniel Azuma's blog on developing geospatial applications with ROR:
+  http://daniel-azuma.com/articles/georails/
 
 
 == Database Configuration Notes
@@ -43,6 +51,60 @@
 
     comment_url(4)              /comments/4
 
+== More Routing Notes
+=============================================
+Home Page of Signed-In User
+
+------------------- Column One ---------------
+
+MyTrips /users/x/trips
+    N = @user.trips.count
+
+    * Trip-1        /users/x/trips/y
+      Description
+      Participants  /trips/y/participants
+
+    * Trip-2        /users/x/trips/z
+      Description
+      Participants  /trips/z/participants
+
+    More trips I lead... /users/x/trips
+
+------------------- Column One ---------------
+
+Trip I have joined    /users/x/enrollments
+    N = @user.enrollments.count   ???
+
+    * Trip-A        /users/xxx/trips/aaa
+      Description
+      Trip Leader   /users/xxx
+
+    * Trip-B        /users/yyy/trips/bbb
+      Description
+      Trip Leader   /users/yyy
+
+    More trips I have joined... /users/x/enrollments
+
+=============================================
+ enrollments_user GET    /users/:id/enrollments(.:format)    users#enrollments
+      enrollments POST   /enrollments(.:format)              enrollments#create
+       enrollment DELETE /enrollments/:id(.:format)          enrollments#destroy
+
+participants_trip GET    /trips/:id/participants(.:format)   trips#participants
+
+       user_trips GET    /users/:user_id/trips(.:format)     trips#index
+                  POST   /users/:user_id/trips(.:format)     trips#create
+        user_trip DELETE /users/:user_id/trips/:id(.:format) trips#destroy
+            users GET    /users(.:format)                    users#index
+                  POST   /users(.:format)                    users#create
+         new_user GET    /users/new(.:format)                users#new
+        edit_user GET    /users/:id/edit(.:format)           users#edit
+             user GET    /users/:id(.:format)                users#show
+                  PUT    /users/:id(.:format)                users#update
+                  DELETE /users/:id(.:format)                users#destroy
+            trips POST   /trips(.:format)                    trips#create
+             trip DELETE /trips/:id(.:format)                trips#destroy
+
 
 == Trip Model
 
@@ -53,9 +115,9 @@ Generate trip object in rails console:
     t4 = Trip.create(name: 't4',description: 'Test trip four',center: "POINT(-95.06 39)",zoom: 5)
 
 
-== Routes Explained
+== Notes by Others:
 
-From: http://stackoverflow.com/questions/7053754/ruby-on-rails-routes
+Routes Explained from: http://stackoverflow.com/questions/7053754/ruby-on-rails-routes
 
 Resource pointed out in previous answers is awesome and that is where I got started. I still refer that in case I am stuck somewhere. One thing I find missing in the recourse is that it doesn't include the explanation of reading the routes table i.e. output of command rake routes and it takes time to fit the pieces together. Although if you read through the whole guide patiently, you can fit the pieces together.
 
@@ -80,12 +142,11 @@ So if "localhost:3000/magazines" is the page you want, you should check the rout
 
 (This might be just an overkill to write all this here, but I faced many problems due to this info not being available in a consolidated manner. Always wanted to write it out and finally did. I wish it was available on http://edgeguides.rubyonrails.org/routing.html in a separate section.)
 share|improve this answer
-    
+
 edited May 8 at 3:51
 Jon
 375
-    
+
 answered Aug 13 '11 at 23:46
 rubish
 5,94011331
-
