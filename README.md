@@ -5,7 +5,7 @@
 This is based on mhartl's tutorial. I originally did this as a learning excercise for ROR sometime in 2013. Then I modifed the data model and code to conform to my application premise.
 
 
-# Credits
+## Credits
 The tutorial that I followed is:
   http://ruby.railstutorial.org.
   https://github.com/railstutorial/sample_app_2nd_ed
@@ -18,7 +18,7 @@ I also relied upon Daniel Azuma's blog on developing geospatial applications wit
   http://daniel-azuma.com/articles/georails/
 
 
-# Database Configuration Notes
+## Database Configuration Notes
 
  First, create user olapp. THen set the search _path so that users see the postgis schema:
        psql --dbname=template1 --username=postgres
@@ -28,10 +28,15 @@ I also relied upon Daniel Azuma's blog on developing geospatial applications wit
            alter database oltst_development set search_path='$user','public','postgis';
            Note, need to exit psql, then re-enter psql to see change.
 
+## External Dependencies
+* PostgreSQL
+* PostGIS spatial extension must be configured with PostgreSQL
+* Geoserver is required to serve up location information to the application
+* The application also consumes base map information 
 
-# Data Model
+## Data Model
 
-## Trip Model
+### Trip Model
 
 rails generate model Trip name:string description:string center:point zoom:integer
 
@@ -39,7 +44,7 @@ Generate trip object in rails console:
     t4 = Trip.create(:name => 't4',:description=>'Test trip four',:center=>"POINT(-95.06 39)",:zoom=>5)
     t4 = Trip.create(name: 't4',description: 'Test trip four',center: "POINT(-95.06 39)",zoom: 5)
 
-# Routes
+## Routes
 
     map.resources :users do |user|
         users.resources :trips
@@ -58,7 +63,7 @@ Generate trip object in rails console:
 
     comment_url(4)              /comments/4
 
-# More Routing Notes
+## More Routing Notes
 =============================================
 Home Page of Signed-In User
 
